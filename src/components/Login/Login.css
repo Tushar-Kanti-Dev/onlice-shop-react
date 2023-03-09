@@ -7,11 +7,15 @@
     border-radius: 8px;
     display: flex;
     justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+ 
 }
 
 .form-title{
     font-size: 35px;
     font-weight: 400;
+    text-align: center;
 }
 .input-group{
     margin-bottom: 20px;
@@ -22,6 +26,7 @@
     border: 1px solid #95A0A7;
     border-radius: 5px;
     font-size: 17px;
+    cursor: pointer;
 }
 
 .input-group label{
@@ -38,6 +43,10 @@
     border-radius: 8px;
     border: 1px solid #95A0A7;
     margin-top: 20px;
+    cursor: pointer;
+}
+.submit-form:hover{
+    background-color: rgb(245, 201, 136);
 }
 .form-para{
     text-align: center;
@@ -46,4 +55,43 @@
 .form-link{
     color:#FF9900;
     margin-left: 5px;
+}
+.under-line{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.left-side{
+    width: 40%;
+    border-top: 2px solid gray;
+    display: flex;
+    justify-content: center;
+}
+
+
+.right-side{
+    width: 40%;
+    border-top: 2px solid gray;
+    display: flex;
+    justify-content: center;
+}
+.middle-side{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.google-sing-button{
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 80%;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+.google-sing-button img{
+    width: 30px;
+    margin-right: 10px;
 }
