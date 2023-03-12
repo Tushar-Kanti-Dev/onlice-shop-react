@@ -49,18 +49,10 @@ const SignUp = () => {
             setError("Password Not match")
             return;
         }
-          
-if (error) {
-    return (
-      <div>
-        <p>Error: {error.message}</p>
-      </div>
-    );
-  }
-//   if (loading) {
-//     return <p>Loading...</p>;
-//   }
-
+          if(password.length <6){
+            setError('Your Password Is too Short');
+            return;
+          }
         createUserWithEmailAndPassword( email, password);     
     }
     return (

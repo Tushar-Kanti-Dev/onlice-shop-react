@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../fireBase.init'
 import './Login.css'
 
@@ -9,21 +9,24 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
-        error,
+        error
       ] = useCreateUserWithEmailAndPassword(auth);
 
-    const haldleEmailBlur= event =>{
+    const handleEmail= event =>{
         setEmail(event.target.value);
     }
     const handlePassword = event =>{
         setPassword(event.target.value);
     }
     if(user){
-        navigate('/')
+        navigate(from, {replace: true});
     }
 
     if (loading) {
@@ -42,17 +45,19 @@ const Login = () => {
                 <form onSubmit={handleUserSignIn}>
                 <div className="input-group">
                     <label htmlFor="email">Email</label>
-                    <input onBlur={haldleEmailBlur} type="email" name="email" id="" required/>
+                    <input onBlur={handleEmail} type="email" name="email" id="" required/>
                 </div>
                 <div className="input-group">
                     <label htmlFor="password">Password</label>
                     <input onBlur={handlePassword} type="password" name="password" id="" required/>
                 </div>
-                <p style={{color:'red'}}>LogIn Error{error?.message}</p>
+                
                 {
                     loading && <p>Loading....</p>
                 }
-                <input className='submit-form' type="submit" value="LogIn" />
+                <p style={{color:'red'}}>{error?.message}</p>
+
+                <input className='submit-form' type="submit" value="Login" />
                 </form>
                 <p className='form-para'>
                     New Member? <Link className='form-link' to='/signup'>Create New Account</Link>
