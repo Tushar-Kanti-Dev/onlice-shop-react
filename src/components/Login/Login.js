@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../fireBase.init'
 import './Login.css'
@@ -13,11 +13,11 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/';
 
     const [
-        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
         user,
         loading,
         error
-      ] = useCreateUserWithEmailAndPassword(auth);
+      ] = useSignInWithEmailAndPassword(auth);
 
     const handleEmail= event =>{
         setEmail(event.target.value);
@@ -35,7 +35,7 @@ const Login = () => {
 
     const handleUserSignIn = event =>{
         event.preventDefault();
-        createUserWithEmailAndPassword(email, password);
+        signInWithEmailAndPassword(email, password);
     }
 
     return (

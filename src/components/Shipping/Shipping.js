@@ -15,10 +15,6 @@ const Shipping = () => {
     const handleName = event =>{
         setName(event.target.value);
     }
-    const handleEmail = event =>{
-        setEmail(event.target.value);
-    }
-
     const handlePhone = event =>{
         setPhone(event.target.value);
     }
@@ -29,6 +25,8 @@ const Shipping = () => {
 
     const handleCreateUser = event =>{
         event.preventDefault();  
+        const shipping = {name, email, address, phone};
+        console.log(shipping);
     }
 
     return (
